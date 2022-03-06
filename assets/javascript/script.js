@@ -1,4 +1,29 @@
 let content = {};
+let arrayCounter = 0;
+let objArray = ["nineAM", "tenAM", "elevenAM", "twelvePM"]
+
+// for (i = 9; i < 13; i++) {
+//     $("#"+i+"-am").on("click", function() {
+//         let text = $("#content-"+i).text().trim();
+//         let textInput = $("<textarea>").attr("id" , "contentText"+i).addClass("col-10").val(text);
+//         $("#content-"+i).replaceWith(textInput);
+//         textInput.trigger("focus");
+//     });
+    
+//     $("#save-"+i).on("click", function() {
+//         // get the textarea's current value/text
+//         var text = $("#contentText"+i).val()
+    
+//         let pEl = $("<p>").text(text).attr("id", "content-"+i);
+    
+//         // replace textarea with p element
+//         $("#contentText"+i).replaceWith(pEl);
+//         let objValues = objArray[arrayCounter];
+//         content.objValues = text;
+//         saveContent();
+//         arrayCounter++;
+//     });
+// }
 
 // 9AM
 $("#9-am").on("click", function() {
@@ -61,7 +86,7 @@ $("#save-11").on("click", function() {
 });
 
 // 12PM
-$("#12-pm").on("click", function() {
+$("#12-am").on("click", function() {
     let text = $("#content-12").text().trim();
     let textInput = $("<textarea>").attr("id" , "contentText12").addClass("col-10").val(text);
     $("#content-12").replaceWith(textInput);
@@ -82,9 +107,9 @@ $("#save-12").on("click", function() {
 
 // 1PM
 $("#1-pm").on("click", function() {
-    let text = $("#content-1").text().trim();
+    let text = $("#content-13").text().trim();
     let textInput = $("<textarea>").attr("id" , "contentText1").addClass("col-10").val(text);
-    $("#content-1").replaceWith(textInput);
+    $("#content-13").replaceWith(textInput);
     textInput.trigger("focus");
 });
 
@@ -102,9 +127,9 @@ $("#save-1").on("click", function() {
 
 // 2PM
 $("#2-pm").on("click", function() {
-    let text = $("#content-2").text().trim();
+    let text = $("#content-14").text().trim();
     let textInput = $("<textarea>").attr("id" , "contentText2").addClass("col-10").val(text);
-    $("#content-2").replaceWith(textInput);
+    $("#content-14").replaceWith(textInput);
     textInput.trigger("focus");
 });
 
@@ -112,7 +137,7 @@ $("#save-2").on("click", function() {
     // get the textarea's current value/text
     var text = $("#contentText2").val()
 
-    let pEl = $("<p>").text(text).attr("id", "content-2");
+    let pEl = $("<p>").text(text).attr("id", "content-14");
 
     // replace textarea with p element
     $("#contentText2").replaceWith(pEl);
@@ -122,9 +147,9 @@ $("#save-2").on("click", function() {
 
 // 3PM
 $("#3-pm").on("click", function() {
-    let text = $("#content-3").text().trim();
+    let text = $("#content-15").text().trim();
     let textInput = $("<textarea>").attr("id" , "contentText3").addClass("col-10").val(text);
-    $("#content-3").replaceWith(textInput);
+    $("#content-15").replaceWith(textInput);
     textInput.trigger("focus");
 });
 
@@ -132,7 +157,7 @@ $("#save-3").on("click", function() {
     // get the textarea's current value/text
     var text = $("#contentText3").val()
 
-    let pEl = $("<p>").text(text).attr("id", "content-3");
+    let pEl = $("<p>").text(text).attr("id", "content-15");
 
     // replace textarea with p element
     $("#contentText3").replaceWith(pEl);
@@ -142,9 +167,9 @@ $("#save-3").on("click", function() {
 
 // 4PM
 $("#4-pm").on("click", function() {
-    let text = $("#content-4").text().trim();
+    let text = $("#content-16").text().trim();
     let textInput = $("<textarea>").attr("id" , "contentText4").addClass("col-10").val(text);
-    $("#content-4").replaceWith(textInput);
+    $("#content-16").replaceWith(textInput);
     textInput.trigger("focus");
 });
 
@@ -152,7 +177,7 @@ $("#save-4").on("click", function() {
     // get the textarea's current value/text
     var text = $("#contentText4").val()
 
-    let pEl = $("<p>").text(text).attr("id", "content-4");
+    let pEl = $("<p>").text(text).attr("id", "content-16");
 
     // replace textarea with p element
     $("#contentText4").replaceWith(pEl);
@@ -162,9 +187,9 @@ $("#save-4").on("click", function() {
 
 // 5PM
 $("#5-pm").on("click", function() {
-    let text = $("#content-5").text().trim();
+    let text = $("#content-17").text().trim();
     let textInput = $("<textarea>").attr("id" , "contentText5").addClass("col-10").val(text);
-    $("#content-5").replaceWith(textInput);
+    $("#content-17").replaceWith(textInput);
     textInput.trigger("focus");
 });
 
@@ -172,7 +197,7 @@ $("#save-5").on("click", function() {
     // get the textarea's current value/text
     var text = $("#contentText5").val()
 
-    let pEl = $("<p>").text(text).attr("id", "content-5");
+    let pEl = $("<p>").text(text).attr("id", "content-17");
 
     // replace textarea with p element
     $("#contentText5").replaceWith(pEl);
@@ -204,100 +229,38 @@ function loadContent() {
     };
 
     // load the save content into the correct place
-    $("#content-9").text(content.nineAM)
-    $("#content-10").text(content.tenAM)
-    $("#content-11").text(content.elevenAM)
-    $("#content-12").text(content.twelvePM)
-    $("#content-1").text(content.onePM)
-    $("#content-2").text(content.twoPM)
-    $("#content-3").text(content.threePM)
-    $("#content-4").text(content.fourPM)
-    $("#content-5").text(content.fivePM)
+    for (let i = 9; i < 18; i++) {
+        let contentArray = Object.values(content);
+        $("#content-"+i).text(contentArray[arrayCounter]);
+        arrayCounter++;
+    }
 };
 
 // color the div backgrounds
 currentHour = moment().hour()
 
 function timeCheck() {
-     // 9AM
-    if (currentHour === 9) {
-        $("#9-am").attr("style", "background-color: #ff3d3d;") //red
-    } else if (currentHour > 9) {
-        $("#9-am").attr("style", "background-color: #7a7a7a;") //gray
-    } else {
-        $("#9-am").attr("style", "background-color: #44ff3d;") //green
+
+    for (let i = 9; i < 13; i++) {
+        if (currentHour === 1) {
+            $("#"+i+"-am").attr("style", "background-color: #ff3d3d;") //red
+        } else if (currentHour > 1) {
+            $("#"+i+"-am").attr("style", "background-color: #7a7a7a;") //gray
+        } else {
+            $("#"+i+"-am").attr("style", "background-color: #44ff3d;") //green
+        }
     }
 
-    // 10AM
-    if (currentHour === 10) {
-        $("#10-am").attr("style", "background-color: #ff3d3d;") //red
-    } else if (currentHour > 10) {
-        $("#10-am").attr("style", "background-color: #7a7a7a;") //gray
-    } else {
-        $("#10-am").attr("style", "background-color: #44ff3d;") //green
-    }
-
-    // 11AM
-    if (currentHour === 11) {
-        $("#11-am").attr("style", "background-color: #ff3d3d;") //red
-    } else if (currentHour > 11) {
-        $("#11-am").attr("style", "background-color: #7a7a7a;") //gray
-    } else {
-        $("#11-am").attr("style", "background-color: #44ff3d;") //green
-    }
-
-    // 12PM
-    if (currentHour === 12) {
-        $("#12-pm").attr("style", "background-color: #ff3d3d;") //red
-    } else if (currentHour > 12) {
-        $("#12-pm").attr("style", "background-color: #7a7a7a;") //gray
-    } else {
-        $("#12-pm").attr("style", "background-color: #44ff3d;") //green
-    }
-
-    // 1PM
-    if (currentHour === 13) {
-        $("#1-pm").attr("style", "background-color: #ff3d3d;") //red
-    } else if (currentHour > 13) {
-        $("#1-pm").attr("style", "background-color: #7a7a7a;") //gray
-    } else {
-        $("#1-pm").attr("style", "background-color: #44ff3d;") //green
-    }
-
-    // 2PM
-    if (currentHour === 14) {
-        $("#2-pm").attr("style", "background-color: #ff3d3d;") //red
-    } else if (currentHour > 14) {
-        $("#2-pm").attr("style", "background-color: #7a7a7a;") //gray
-    } else {
-        $("#2-pm").attr("style", "background-color: #44ff3d;") //green
-    }
-
-    // 3PM
-    if (currentHour === 15) {
-        $("#3-pm").attr("style", "background-color: #ff3d3d;") //red
-    } else if (currentHour > 15) {
-        $("#3-pm").attr("style", "background-color: #7a7a7a;") //gray
-    } else {
-        $("#3-pm").attr("style", "background-color: #44ff3d;") //green
-    }
-
-    // 4PM
-    if (currentHour === 16) {
-        $("#4-pm").attr("style", "background-color: #ff3d3d;") //red
-    } else if (currentHour > 16) {
-        $("#4-pm").attr("style", "background-color: #7a7a7a;") //gray
-    } else {
-        $("#4-pm").attr("style", "background-color: #44ff3d;") //green
-    }
-
-    // 5PM
-    if (currentHour === 17) {
-        $("#5-pm").attr("style", "background-color: #ff3d3d;") //red
-    } else if (currentHour > 17) {
-        $("#5-pm").attr("style", "background-color: #7a7a7a;") //gray
-    } else {
-        $("#5-pm").attr("style", "background-color: #44ff3d;") //green
+    let hourCounter = 13
+    for (let i = 1; i < 6; i++) {
+        if (currentHour === hourCounter) {
+            $("#"+i+"-pm").attr("style", "background-color: #ff3d3d;") //red
+        } else if (currentHour > hourCounter) {
+            $("#"+i+"-pm").attr("style", "background-color: #7a7a7a;") //gray
+        } else {
+            $("#"+i+"-pm").attr("style", "background-color: #44ff3d;") //green
+        }
+        hourCounter++
     }
 }
 
