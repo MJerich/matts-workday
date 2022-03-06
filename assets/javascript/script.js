@@ -16,6 +16,8 @@ $("#save-9").on("click", function() {
 
     // replace textarea with p element
     $("#contentText9").replaceWith(pEl);
+    content.nineAM = text
+    saveContent();
 });
 
 // 10AM
@@ -34,7 +36,9 @@ $("#save-10").on("click", function() {
 
     // replace textarea with p element
     $("#contentText10").replaceWith(pEl);
-});;
+    content.tenAM = text
+    saveContent();
+});
 
 // 11AM
 $("#11-am").on("click", function() {
@@ -52,7 +56,9 @@ $("#save-11").on("click", function() {
 
     // replace textarea with p element
     $("#contentText11").replaceWith(pEl);
-});;
+    content.elevenAM = text
+    saveContent();
+});
 
 // 12PM
 $("#12-pm").on("click", function() {
@@ -70,7 +76,9 @@ $("#save-12").on("click", function() {
 
     // replace textarea with p element
     $("#contentText12").replaceWith(pEl);
-});;
+    content.twelvePM = text
+    saveContent();
+});
 
 // 1PM
 $("#1-pm").on("click", function() {
@@ -88,7 +96,9 @@ $("#save-1").on("click", function() {
 
     // replace textarea with p element
     $("#contentText1").replaceWith(pEl);
-});;
+    content.onePM = text
+    saveContent();
+});
 
 // 2PM
 $("#2-pm").on("click", function() {
@@ -106,7 +116,9 @@ $("#save-2").on("click", function() {
 
     // replace textarea with p element
     $("#contentText2").replaceWith(pEl);
-});;
+    content.twoPM = text
+    saveContent();
+});
 
 // 3PM
 $("#3-pm").on("click", function() {
@@ -124,7 +136,9 @@ $("#save-3").on("click", function() {
 
     // replace textarea with p element
     $("#contentText3").replaceWith(pEl);
-});;
+    content.threePM = text
+    saveContent();
+});
 
 // 4PM
 $("#4-pm").on("click", function() {
@@ -142,11 +156,9 @@ $("#save-4").on("click", function() {
 
     // replace textarea with p element
     $("#contentText4").replaceWith(pEl);
-});;
-
-function saveContent() {
-    localStorage.setItem("content", JSON.stringify(content))
-};
+    content.fourPM = text
+    saveContent();
+});
 
 // 5PM
 $("#5-pm").on("click", function() {
@@ -164,8 +176,16 @@ $("#save-5").on("click", function() {
 
     // replace textarea with p element
     $("#contentText5").replaceWith(pEl);
-});;
+    content.fivePM = text
+    saveContent();
+});
 
+// save to local storage
+function saveContent() {
+    localStorage.setItem("content", JSON.stringify(content))
+};
+
+// load from local storage
 function loadContent() {
     content = JSON.parse(localStorage.getItem("content"));
 
@@ -183,9 +203,16 @@ function loadContent() {
         };
     };
 
-    $.each(content, function(list, arr) {
-        arr.forEach(function(content){
-
-        });
-    });
+    // load the save content into the correct place
+    $("#content-9").text(content.nineAM)
+    $("#content-10").text(content.tenAM)
+    $("#content-11").text(content.elevenAM)
+    $("#content-12").text(content.twelvePM)
+    $("#content-1").text(content.onePM)
+    $("#content-2").text(content.twoPM)
+    $("#content-3").text(content.threePM)
+    $("#content-4").text(content.fourPM)
+    $("#content-5").text(content.fivePM)
 };
+
+loadContent();
