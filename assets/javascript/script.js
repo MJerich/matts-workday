@@ -306,4 +306,7 @@ setInterval(function() {
     timeCheck();
 }, 60000);
 
+let today = moment().format("dddd, MMMM Do YYYY")
+$("#currentDay").text(today);
+
 loadContent();
