@@ -215,4 +215,95 @@ function loadContent() {
     $("#content-5").text(content.fivePM)
 };
 
+// color the div backgrounds
+currentHour = moment().hour()
+
+function timeCheck() {
+     // 9AM
+    if (currentHour === 9) {
+        $("#9-am").attr("style", "background-color: #ff3d3d;") //red
+    } else if (currentHour > 9) {
+        $("#9-am").attr("style", "background-color: #7a7a7a;") //gray
+    } else {
+        $("#9-am").attr("style", "background-color: #44ff3d;") //green
+    }
+
+    // 10AM
+    if (currentHour === 10) {
+        $("#10-am").attr("style", "background-color: #ff3d3d;") //red
+    } else if (currentHour > 10) {
+        $("#10-am").attr("style", "background-color: #7a7a7a;") //gray
+    } else {
+        $("#10-am").attr("style", "background-color: #44ff3d;") //green
+    }
+
+    // 11AM
+    if (currentHour === 11) {
+        $("#11-am").attr("style", "background-color: #ff3d3d;") //red
+    } else if (currentHour > 11) {
+        $("#11-am").attr("style", "background-color: #7a7a7a;") //gray
+    } else {
+        $("#11-am").attr("style", "background-color: #44ff3d;") //green
+    }
+
+    // 12PM
+    if (currentHour === 12) {
+        $("#12-pm").attr("style", "background-color: #ff3d3d;") //red
+    } else if (currentHour > 12) {
+        $("#12-pm").attr("style", "background-color: #7a7a7a;") //gray
+    } else {
+        $("#12-pm").attr("style", "background-color: #44ff3d;") //green
+    }
+
+    // 1PM
+    if (currentHour === 13) {
+        $("#1-pm").attr("style", "background-color: #ff3d3d;") //red
+    } else if (currentHour > 13) {
+        $("#1-pm").attr("style", "background-color: #7a7a7a;") //gray
+    } else {
+        $("#1-pm").attr("style", "background-color: #44ff3d;") //green
+    }
+
+    // 2PM
+    if (currentHour === 14) {
+        $("#2-pm").attr("style", "background-color: #ff3d3d;") //red
+    } else if (currentHour > 14) {
+        $("#2-pm").attr("style", "background-color: #7a7a7a;") //gray
+    } else {
+        $("#2-pm").attr("style", "background-color: #44ff3d;") //green
+    }
+
+    // 3PM
+    if (currentHour === 15) {
+        $("#3-pm").attr("style", "background-color: #ff3d3d;") //red
+    } else if (currentHour > 15) {
+        $("#3-pm").attr("style", "background-color: #7a7a7a;") //gray
+    } else {
+        $("#3-pm").attr("style", "background-color: #44ff3d;") //green
+    }
+
+    // 4PM
+    if (currentHour === 16) {
+        $("#4-pm").attr("style", "background-color: #ff3d3d;") //red
+    } else if (currentHour > 16) {
+        $("#4-pm").attr("style", "background-color: #7a7a7a;") //gray
+    } else {
+        $("#4-pm").attr("style", "background-color: #44ff3d;") //green
+    }
+
+    // 5PM
+    if (currentHour === 17) {
+        $("#5-pm").attr("style", "background-color: #ff3d3d;") //red
+    } else if (currentHour > 17) {
+        $("#5-pm").attr("style", "background-color: #7a7a7a;") //gray
+    } else {
+        $("#5-pm").attr("style", "background-color: #44ff3d;") //green
+    }
+}
+
+timeCheck();
+setInterval(function() {
+    timeCheck();
+}, 60000);
+
 loadContent();
