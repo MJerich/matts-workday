@@ -91,3 +91,8 @@ textarea{
   background-color: #4287f5;
   border-radius: 0 10px 10px 0;
 }
+
+.nothing {
+  color: #6d6d6d;
+  font-style: italic;
+}
