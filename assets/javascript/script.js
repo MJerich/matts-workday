@@ -1,25 +1,170 @@
 let content = {};
 
-$(".content").on("click", "p", function() {
-    let text = $(this).text().trim();
-    let textInput = $("<textarea>").addClass("contentText").val(text);
-    $(this).replaceWith(textInput);
+// 9AM
+$("#9-am").on("click", function() {
+    let text = $("#content-9").text().trim();
+    let textInput = $("<textarea>").attr("id" , "contentText9").addClass("col-10").val(text);
+    $("#content-9").replaceWith(textInput);
     textInput.trigger("focus");
 });
 
-$(".save").on("click", function() {
+$("#save-9").on("click", function() {
     // get the textarea's current value/text
-    var text = $(".contentText").val()
+    var text = $("#contentText9").val()
 
-    let pEl = $("<p>").text(text)
+    let pEl = $("<p>").text(text).attr("id", "content-9");
 
     // replace textarea with p element
-    $(".contentText").replaceWith(pEl);
+    $("#contentText9").replaceWith(pEl);
 });
+
+// 10AM
+$("#10-am").on("click", function() {
+    let text = $("#content-10").text().trim();
+    let textInput = $("<textarea>").attr("id" , "contentText10").addClass("col-10").val(text);
+    $("#content-10").replaceWith(textInput);
+    textInput.trigger("focus");
+});
+
+$("#save-10").on("click", function() {
+    // get the textarea's current value/text
+    var text = $("#contentText10").val()
+
+    let pEl = $("<p>").text(text).attr("id", "content-10");
+
+    // replace textarea with p element
+    $("#contentText10").replaceWith(pEl);
+});;
+
+// 11AM
+$("#11-am").on("click", function() {
+    let text = $("#content-11").text().trim();
+    let textInput = $("<textarea>").attr("id" , "contentText11").addClass("col-10").val(text);
+    $("#content-11").replaceWith(textInput);
+    textInput.trigger("focus");
+});
+
+$("#save-11").on("click", function() {
+    // get the textarea's current value/text
+    var text = $("#contentText11").val()
+
+    let pEl = $("<p>").text(text).attr("id", "content-11");
+
+    // replace textarea with p element
+    $("#contentText11").replaceWith(pEl);
+});;
+
+// 12PM
+$("#12-pm").on("click", function() {
+    let text = $("#content-12").text().trim();
+    let textInput = $("<textarea>").attr("id" , "contentText12").addClass("col-10").val(text);
+    $("#content-12").replaceWith(textInput);
+    textInput.trigger("focus");
+});
+
+$("#save-12").on("click", function() {
+    // get the textarea's current value/text
+    var text = $("#contentText12").val()
+
+    let pEl = $("<p>").text(text).attr("id", "content-12");
+
+    // replace textarea with p element
+    $("#contentText12").replaceWith(pEl);
+});;
+
+// 1PM
+$("#1-pm").on("click", function() {
+    let text = $("#content-1").text().trim();
+    let textInput = $("<textarea>").attr("id" , "contentText1").addClass("col-10").val(text);
+    $("#content-1").replaceWith(textInput);
+    textInput.trigger("focus");
+});
+
+$("#save-1").on("click", function() {
+    // get the textarea's current value/text
+    var text = $("#contentText1").val()
+
+    let pEl = $("<p>").text(text).attr("id", "content-1");
+
+    // replace textarea with p element
+    $("#contentText1").replaceWith(pEl);
+});;
+
+// 2PM
+$("#2-pm").on("click", function() {
+    let text = $("#content-2").text().trim();
+    let textInput = $("<textarea>").attr("id" , "contentText2").addClass("col-10").val(text);
+    $("#content-2").replaceWith(textInput);
+    textInput.trigger("focus");
+});
+
+$("#save-2").on("click", function() {
+    // get the textarea's current value/text
+    var text = $("#contentText2").val()
+
+    let pEl = $("<p>").text(text).attr("id", "content-2");
+
+    // replace textarea with p element
+    $("#contentText2").replaceWith(pEl);
+});;
+
+// 3PM
+$("#3-pm").on("click", function() {
+    let text = $("#content-3").text().trim();
+    let textInput = $("<textarea>").attr("id" , "contentText3").addClass("col-10").val(text);
+    $("#content-3").replaceWith(textInput);
+    textInput.trigger("focus");
+});
+
+$("#save-3").on("click", function() {
+    // get the textarea's current value/text
+    var text = $("#contentText3").val()
+
+    let pEl = $("<p>").text(text).attr("id", "content-3");
+
+    // replace textarea with p element
+    $("#contentText3").replaceWith(pEl);
+});;
+
+// 4PM
+$("#4-pm").on("click", function() {
+    let text = $("#content-4").text().trim();
+    let textInput = $("<textarea>").attr("id" , "contentText4").addClass("col-10").val(text);
+    $("#content-4").replaceWith(textInput);
+    textInput.trigger("focus");
+});
+
+$("#save-4").on("click", function() {
+    // get the textarea's current value/text
+    var text = $("#contentText4").val()
+
+    let pEl = $("<p>").text(text).attr("id", "content-4");
+
+    // replace textarea with p element
+    $("#contentText4").replaceWith(pEl);
+});;
 
 function saveContent() {
     localStorage.setItem("content", JSON.stringify(content))
 };
+
+// 5PM
+$("#5-pm").on("click", function() {
+    let text = $("#content-5").text().trim();
+    let textInput = $("<textarea>").attr("id" , "contentText5").addClass("col-10").val(text);
+    $("#content-5").replaceWith(textInput);
+    textInput.trigger("focus");
+});
+
+$("#save-5").on("click", function() {
+    // get the textarea's current value/text
+    var text = $("#contentText5").val()
+
+    let pEl = $("<p>").text(text).attr("id", "content-5");
+
+    // replace textarea with p element
+    $("#contentText5").replaceWith(pEl);
+});;
 
 function loadContent() {
     content = JSON.parse(localStorage.getItem("content"));
