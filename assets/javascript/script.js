@@ -1,29 +1,5 @@
 let content = {};
 let arrayCounter = 0;
-let objArray = ["nineAM", "tenAM", "elevenAM", "twelvePM"]
-
-// for (i = 9; i < 13; i++) {
-//     $("#"+i+"-am").on("click", function() {
-//         let text = $("#content-"+i).text().trim();
-//         let textInput = $("<textarea>").attr("id" , "contentText"+i).addClass("col-10").val(text);
-//         $("#content-"+i).replaceWith(textInput);
-//         textInput.trigger("focus");
-//     });
-    
-//     $("#save-"+i).on("click", function() {
-//         // get the textarea's current value/text
-//         var text = $("#contentText"+i).val()
-    
-//         let pEl = $("<p>").text(text).attr("id", "content-"+i);
-    
-//         // replace textarea with p element
-//         $("#contentText"+i).replaceWith(pEl);
-//         let objValues = objArray[arrayCounter];
-//         content.objValues = text;
-//         saveContent();
-//         arrayCounter++;
-//     });
-// }
 
 // 9AM
 $("#9-am").on("click", function() {
@@ -265,9 +241,7 @@ function timeCheck() {
 }
 
 timeCheck();
-setInterval(function() {
-    timeCheck();
-}, 60000);
+setInterval(timeCheck, 60000);
 
 let today = moment().format("dddd, MMMM Do YYYY")
 $("#currentDay").text(today);
